@@ -28,7 +28,7 @@ const update_metadata = function(metadata) {
   if (metadata.sample.tissue) {
     return metadataConverter.convert( metadata.sample.tissue ).then( converted => {
       if ( ! converted.root ) {
-        return;
+        return metadata;
       }
       metadata.sample.uberon = converted.root;
       metadata.sample.description = converted.name;
