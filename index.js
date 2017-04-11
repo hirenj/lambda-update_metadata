@@ -22,7 +22,7 @@ if (config.region) {
 const dynamo = new AWS.DynamoDB.DocumentClient();
 
 const update_metadata = function(metadata) {
-  if (! metadata.sample) {
+  if (! metadata || ! metadata.sample) {
     return Promise.resolve(metadata);
   }
   if (metadata.sample.tissue) {
@@ -40,6 +40,9 @@ const update_metadata = function(metadata) {
 
 const upload_metadata_dynamodb = function upload_metadata_dynamodb(set_id,metadata) {
   console.log('Derived metadata to be',set_id,metadata);
+  if ( ! metadata ) {
+    return Promise.resolve({ dataset: set_id, metadata: {} });
+  }
   if (metadata.sample) {
     console.log('Mapping to super-tissue',metadata.sample.tissue,'to',metadata.sample.description);
   }
