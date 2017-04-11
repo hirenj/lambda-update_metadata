@@ -39,7 +39,7 @@ const update_metadata = function(metadata) {
 };
 
 const upload_metadata_dynamodb = function upload_metadata_dynamodb(set_id,metadata) {
-  console.log('Derived metadata to be',metadata);
+  console.log('Derived metadata to be',set_id,metadata);
   if (metadata.sample) {
     console.log('Mapping to super-tissue',metadata.sample.tissue,'to',metadata.sample.description);
   }
