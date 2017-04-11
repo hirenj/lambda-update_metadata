@@ -58,7 +58,7 @@ const upload_metadata_dynamodb = function upload_metadata_dynamodb(set_id,metada
     }
   };
   return dynamo.update(params).promise().then( () => {
-    return { dataset: set_id, metadata : metadata };
+    return { dataset: set_id, metadata : { sample: metadata.sample, mimetype: metadata.mimetype, title: metadata.title, quantitation: metadata.quantitation } };
   });
 };
 
