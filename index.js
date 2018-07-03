@@ -58,7 +58,7 @@ const upload_metadata_dynamodb = function upload_metadata_dynamodb(set_id,metada
     }
   };
   return dynamo.update(params).promise().then( () => {
-    let return_data = { dataset: set_id, metadata : { sample: metadata.sample, locations: metadata.locations || [], mimetype: metadata.mimetype, title: metadata.title, quantitation: metadata.quantitation } };
+    let return_data = { dataset: set_id, metadata : { sample: metadata.sample, locations: metadata.locations || [], mimetype: metadata.mimetype, title: metadata.title, quantitation: metadata.quantitation, doi: metadata.doi } };
     if (JSON.stringify(return_data).length > 32600) {
       return { dataset: return_data.dataset };
     }
