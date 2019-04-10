@@ -15,7 +15,7 @@
         "Handler" : "index.updateMetadata",
         "Environment" : { "Variables" : {}},
         "Role" : {"Fn::GetAtt" : ["LambdaUpdateMetadataRole", "Arn"] },
-        "Runtime" : "nodejs6.10",
+        "Runtime" : "nodejs8.10",
         "MemorySize" : 512,
         "Timeout" : 60
       },
