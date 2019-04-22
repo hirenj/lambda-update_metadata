@@ -20,6 +20,7 @@ Resources:
       ManagedPolicyArns:
         - !Ref 'ReadDatasets'
         - !Ref 'WriteDatasets'
+        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -27,19 +28,4 @@ Resources:
             Principal:
               Service: lambda.amazonaws.com
             Action: sts:AssumeRole
-  UpdateMetadataLogWriterPolicy:
-    Type: AWS::IAM::Policy
-    Properties:
-      PolicyName: UpdateMetadataLogWriterPolicy
-      PolicyDocument:
-        Version: '2012-10-17'
-        Statement:
-          - Effect: Allow
-            Action:
-              - logs:CreateLogGroup
-              - logs:CreateLogStream
-              - logs:PutLogEvents
-            Resource: arn:aws:logs:*:*:*
-      Roles:
-        - !Ref 'LambdaUpdateMetadataRole'
 Outputs: {}
