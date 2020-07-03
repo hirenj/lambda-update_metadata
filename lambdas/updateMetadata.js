@@ -1,0 +1,1 @@
+exports.updateMetadata = require('../js/common').updateMetadata;
