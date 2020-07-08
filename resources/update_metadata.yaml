@@ -10,7 +10,7 @@ Resources:
       Environment:
         Variables: {}
       Role: !GetAtt 'LambdaUpdateMetadataRole.Arn'
-      Runtime: nodejs8.10
+      Runtime: !Ref nodejsversion
       MemorySize: 512
       Timeout: 60
     DependsOn: LambdaUpdateMetadataRole
